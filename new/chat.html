@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="chatIcon"><img src="icons8-facebook-messenger-48.png" title="chat"></div>
+    <div class="chatBox">
+        <div class="chatHead">
+            <img src="icons8-male-user-50.png" title="profile" class="profile">
+            <p class="user">Adham Soliman</p>
+            <p class="active">Active 1h ago</p>
+            <img src="icons8-video-call-50.png" title="video call" class="videocall">
+            <img src="icons8-call-50.png" title="audio call" class="call">
+
+        </div>
+        <div class="chatBody"></div>
+        <div class="chatFoot">
+            <input type="text">
+        </div>
+    </div>
+    <script src="jquery-3.6.4.min.js"></script>
+    <script>
+        $('.chatIcon').click(function(){
+            $('.chatBox').toggle(250)
+        })
+        $('.chatFoot input') .keyup(function(event){
+            if(event.keyCode == 13){
+            //console.log(event.keyCode);
+            // console.log($(this).val());
+            let msg =$(this).val()
+            $('.chatBody').append("<p>" + msg + "</p>")    
+            $(this).val(null)
+            $(".chatBody").stop().animate({ scrollTop: $(".chatBody")[0].scrollHeight}, 1000);
+
+        }
+        })
+    </script>
+</body>
+</html>
